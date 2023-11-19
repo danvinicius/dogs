@@ -32,7 +32,7 @@ export const UserStorage = ({ children }) => {
         password: password.value,
       });
       const res = await fetch(url, options);
-      if (!res.ok) throw new Error(`Error: ${res.statusText}`);
+      if (!res.ok) throw new Error(`Error: Senha incorreta`);
       const { token } = await res.json();
       window.localStorage.setItem("token", token);
       await getUser(token);
