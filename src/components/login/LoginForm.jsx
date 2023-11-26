@@ -28,13 +28,13 @@ const LoginForm = () => {
           type="text"
           name="username"
           {...username}
-        ></Input>
+        />
         <Input
           label="Senha"
           type="password"
           name="password"
           {...password}
-        ></Input>
+        />
         {loading ? (
           <Button disabled>Carregando...</Button>
         ) : (

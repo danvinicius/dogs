@@ -39,20 +39,20 @@ const LoginCreate = () => {
           type="text"
           name="username"
           {...username}
-        ></Input>
-        <Input label="E-mail" type="email" name="email" {...email}></Input>
+        />
+        <Input label="E-mail" type="email" name="email" {...email}/>
         <Input
           label="Senha"
           type="password"
           name="password"
           {...password}
-        ></Input>
+        />
         {loading ? (
           <Button disabled>Cadastrando</Button>
         ) : (
           <Button className={buttonStyles.button}>Cadastrar</Button>
         )}
-        <Error error={error}></Error>
+        <Error error={error}/>
       </form>
     </section>
   );
