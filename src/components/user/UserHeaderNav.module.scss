@@ -1,127 +1,132 @@
 .nav {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 
-    a, button {
-        background-color: #eee;
-        border-radius: .2rem;
-        height: 40px;
-        width: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid transparent;
-        transition: .1s;
-        cursor: pointer;
-
-        &:hover, &:focus {
-            background: #fff;
-            box-shadow: 0 0 0 3px #eee;
-            border-color: #333;
-            outline: none;
-        }
-    }
-
-    a:global(.active) {
-        background: #fff;
-        box-shadow: 0 0 0 3px #fea;
-        border-color: #fb1;
-
-        svg {
-           * {
-            fill: #fb1;
-           } 
-        }
-    }
-}
-.navMobile {
-    display: block;
-    position: absolute;
-    top: 70px;
-    right: 0px;
-    padding: 0 1rem;
-    background: #fff;
-    box-shadow: 0 1px 2px rgba($color: #000000, $alpha: .2);
-    border-radius: .2rem;
-    transform: translate(-10px);
-    opacity: 0;
-    pointer-events: none;
-
-
-    a, button {
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        background: none;
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #eee;
-        padding: .5rem 0;
-        cursor: pointer;
-        transition: .1s;
-
-        &:hover, &:focus {
-            color: #fb1;
-            svg {
-                * {
-                    fill: #fb1;
-                }
-            }
-        }
-    }
-
-    svg {
-        margin-right: .5rem;
-    }
-
-    &.navMobileActive {
-        transition: .3s;
-        transform: initial;
-        opacity: 1;
-        z-index: 100;
-        pointer-events: initial;
-    }
-}
-
-.mobileButton {
+  a,
+  button {
     background-color: #eee;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     height: 40px;
     width: 40px;
-    padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid transparent;
-    transition: .1s;
+    transition: 0.1s;
     cursor: pointer;
 
-    &:hover, &:focus, &.mobileButtonActive {
-        outline: none;
-        background: #fff;
-        box-shadow: 0 0 0 3px #fea;
-        border-color: #fb1;
-        color: #fb1;
+    &:hover,
+    &:focus {
+      background: #fff;
+      box-shadow: 0 0 0 3px #eee;
+      border-color: #333;
+      outline: none;
     }
+  }
 
-    &::after {
-        content: '';
-        display: block;
-        width: 1.2rem;
-        height: 2px;
-        border-radius: 2px;
-        background: currentColor;
-        box-shadow: 0 6px currentColor, 0 -6px currentColor;
-        transition: .2s;
+  a:global(.active) {
+    background: #fff;
+    box-shadow: 0 0 0 3px #fea;
+    border-color: #fb1;
+
+    svg {
+      * {
+        fill: #fb1;
+      }
     }
+  }
+}
+.navMobile {
+  display: block;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  padding: 0 1rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba($color: #000000, $alpha: 0.2);
+  border-radius: 0.2rem;
+  transform: translate(-10px);
+  opacity: 0;
+  pointer-events: none;
 
-    &.mobileButtonActive {
-        &::after {
-            transform: rotate(90deg);
-            height: 4px;
-            width: 4px;
-            box-shadow: 0 8px currentColor, 0 -8px currentColor;
+  a,
+  button {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    background: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover,
+    &:focus {
+      color: #fb1;
+      svg {
+        * {
+          fill: #fb1;
         }
+      }
     }
+  }
+
+  svg {
+    margin-right: 0.5rem;
+  }
+
+  &.navMobileActive {
+    transition: 0.3s;
+    transform: initial;
+    opacity: 1;
+    z-index: 100;
+    pointer-events: initial;
+  }
+}
+
+.mobileButton {
+  background-color: #eee;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &.mobileButtonActive {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 3px #fea;
+    border-color: #fb1;
+    color: #fb1;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 1.2rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    box-shadow: 0 6px currentColor, 0 -6px currentColor;
+    transition: 0.2s;
+  }
+
+  &.mobileButtonActive {
+    &::after {
+      transform: rotate(90deg);
+      height: 4px;
+      width: 4px;
+      box-shadow: 0 8px currentColor, 0 -8px currentColor;
+    }
+  }
 }

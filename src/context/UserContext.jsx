@@ -19,16 +19,13 @@ export const UserStorage = ({ children }) => {
     window.localStorage.removeItem("token");
   }, []);
 
-  const getUser = React.useCallback(
-    async (token) => {
-      const { url, options } = USER_GET(token);
-      const res = await fetch(url, options);
-      const json = await res.json();
-      setData(json);
-      setLogged(true);
-    },
-    []
-  );
+  const getUser = React.useCallback(async (token) => {
+    const { url, options } = USER_GET(token);
+    const res = await fetch(url, options);
+    const json = await res.json();
+    setData(json);
+    setLogged(true);
+  }, []);
 
   const userLogin = async ({ username, password }) => {
     try {

@@ -22,11 +22,11 @@ const UserHeaderNav = () => {
     navigate("/login");
   };
 
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   React.useEffect(() => {
     setMobileMenu(false);
-  }, [pathname])
+  }, [pathname]);
   return (
     <>
       {mobile && (
