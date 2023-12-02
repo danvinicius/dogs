@@ -28,7 +28,6 @@ const LoginCreate = () => {
     if (response.ok) {
       userLogin(username.value, password.value);
     }
-    console.log(response);
   };
   return (
     <section className="animeLeft">
