@@ -43,9 +43,9 @@ const UserPhotoPost = () => {
   return (
     <section className={`${styles.photoPost} animeLeft`}>
       <form onSubmit={handleSubmit}>
-        <Input type="text" label="Nome" name="nome" {...nome}></Input>
-        <Input type="number" label="Peso" name="peso" {...peso}></Input>
-        <Input type="number" label="Idade" name="idade" {...idade}></Input>
+        <Input type="text" label="Nome" name="nome" {...nome}/>
+        <Input type="number" label="Peso" name="peso" {...peso}/>
+        <Input type="number" label="Idade" name="idade" {...idade}/>
         <input
           className={styles.file}
           type="file"
@@ -58,7 +58,7 @@ const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        <Error error={error}></Error>
+        <Error error={error}/>
       </form>
       {img.preview && (
         <div
