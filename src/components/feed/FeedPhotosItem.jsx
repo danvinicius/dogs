@@ -1,3 +1,4 @@
+import Image from '../helper/Image';
 import style from './FeedPhotosItem.module.scss'
 
 const FeedPhotosItem = ({ photo, setModalPhoto }) => {
@@ -6,7 +7,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto }) => {
   }
   return (
     <li className={style.photo} onClick={handleClick}>
-      <img src={photo.src} alt={photo.title} />
+      <Image alt={photo.title} src={photo.src}/>
       <span className={style.visualizacao}>{photo.acessos}</span>
     </li>
   );
