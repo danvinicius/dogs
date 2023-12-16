@@ -1,7 +1,11 @@
+import Head from "../helper/Head";
+
 const LostPassword = () => {
   return (
-    <div>LostPassword</div>
-  )
-}
+    <section>
+      <Head title="Perdeu a senha?"></Head>LostPassword
+    </section>
+  );
+};
 
-export default LostPassword
+export default LostPassword;
