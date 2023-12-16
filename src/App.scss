@@ -87,3 +87,13 @@ a {
   color: #f31;
   margin: 1rem 0;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+
+  .appBody {
+    flex: 1;
+  }
+}
