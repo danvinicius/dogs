@@ -4,7 +4,7 @@ import Feed from "../feed/Feed";
 const UserProfile = () => {
   const { user } = useParams();
   return (
-    <section className="container">
+    <section className="container mainContainer">
       <h1 className="title">{user}</h1>
       <Feed user={user}></Feed>
     </section>
