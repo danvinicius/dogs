@@ -6,19 +6,23 @@ import Error from "../helper/Error";
 import FeedPhotosItem from "./FeedPhotosItem";
 import styles from "./FeedPhotos.module.scss";
 
-const FeedPhotos = ({ setModalPhoto }) => {
+const FeedPhotos = ({ setInfinite, page, user, setModalPhoto }) => {
   const { data, error, loading, request } = useFetch();
 
   React.useEffect(() => {
     const fetchPhotos = async () => {
-      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
+      const total = 3;
+      const { url, options } = PHOTOS_GET({ page, total, user });
       const { response, json } = await request(url, options);
+      if (response && response?.ok && json.length < total) {
+        setInfinite(false);
+      }
     };
     fetchPhotos();
-  }, [request]);
+  }, [request, user, page, setInfinite]);
 
-  if (error) return <Error error={error}/>;
-  if (loading) return <Loading/>;
+  if (error) return <Error error={error} />;
+  if (loading) return <Loading />;
   if (data)
     return (
       <ul className={`${styles.feed} animeLeft`}>
@@ -26,7 +30,8 @@ const FeedPhotos = ({ setModalPhoto }) => {
           <FeedPhotosItem
             key={photo.id}
             photo={photo}
-            setModalPhoto={setModalPhoto}/>
+            setModalPhoto={setModalPhoto}
+          />
         ))}
       </ul>
     );
