@@ -7,13 +7,14 @@ import Login from "./components/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserStorage } from "./context/UserContext";
 import ProtectedRoute from "./components/helper/ProtectedRoute";
+import Photo from "./components/photo/Photo";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <UserStorage>
-          <Header/>
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="login/*" element={<Login />} />
@@ -25,8 +26,9 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="foto/:id" element={<Photo />} />
           </Routes>
-          <Footer/>
+          <Footer />
         </UserStorage>
       </BrowserRouter>
     </div>
