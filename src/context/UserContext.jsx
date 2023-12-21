@@ -2,6 +2,7 @@ import React from "react";
 import { TOKEN_POST, USER_GET, TOKEN_VALIDATE_POST } from "../api";
 export const UserContext = React.createContext();
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
@@ -19,16 +20,13 @@ export const UserStorage = ({ children }) => {
     window.localStorage.removeItem("token");
   }, []);
 
-  const getUser = React.useCallback(
-    async (token) => {
-      const { url, options } = USER_GET(token);
-      const res = await fetch(url, options);
-      const json = await res.json();
-      setData(json);
-      setLogged(true);
-    },
-    []
-  );
+  const getUser = React.useCallback(async (token) => {
+    const { url, options } = USER_GET(token);
+    const res = await fetch(url, options);
+    const json = await res.json();
+    setData(json);
+    setLogged(true);
+  }, []);
 
   const userLogin = async ({ username, password }) => {
     try {
@@ -80,4 +78,11 @@ export const UserStorage = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
+};
+
+UserStorage.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };

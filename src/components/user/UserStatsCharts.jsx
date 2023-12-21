@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./UserStatsCharts.module.scss";
 import { VictoryPie, VictoryChart, VictoryBar } from "victory";
+import PropTypes from "prop-types";
 
 const UserStatsCharts = ({ data }) => {
   const [chart, setChart] = React.useState([]);
@@ -29,24 +30,33 @@ const UserStatsCharts = ({ data }) => {
           padding={{ top: 20, bottom: 20, left: 80, right: 80 }}
           style={{
             data: {
-                fillOpacity: .9,
-                stroke: '#fff',
-                strokeWidth: 2
+              fillOpacity: 0.9,
+              stroke: "#fff",
+              strokeWidth: 2,
             },
             labels: {
-                fontSize: 14,
-                fill: '#333',
-            }
+              fontSize: 14,
+              fill: "#333",
+            },
           }}
-        ></VictoryPie>
+        />
       </div>
       <div className={styles.chartItem}>
         <VictoryChart>
-            <VictoryBar data={chart} alignment="start"></VictoryBar>
+          <VictoryBar data={chart} alignment="start" />
         </VictoryChart>
       </div>
     </section>
   );
+};
+
+UserStatsCharts.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      acessos: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default UserStatsCharts;

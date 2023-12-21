@@ -86,7 +86,7 @@ export const PHOTO_DELETE = (id, token) => {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
-      }
+      },
     },
   };
 };

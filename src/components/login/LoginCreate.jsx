@@ -32,28 +32,18 @@ const LoginCreate = () => {
   };
   return (
     <section className="animeLeft">
-      <Head title='Cria sua conta'></Head>
+      <Head title="Cria sua conta" />
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
-        <Input
-          label="Usuário"
-          type="text"
-          name="username"
-          {...username}
-        />
-        <Input label="E-mail" type="email" name="email" {...email}/>
-        <Input
-          label="Senha"
-          type="password"
-          name="password"
-          {...password}
-        />
+        <Input label="Usuário" type="text" name="username" {...username} />
+        <Input label="E-mail" type="email" name="email" {...email} />
+        <Input label="Senha" type="password" name="password" {...password} />
         {loading ? (
           <Button disabled>Cadastrando</Button>
         ) : (
           <Button className={buttonStyles.button}>Cadastrar</Button>
         )}
-        <Error error={error}/>
+        <Error error={error} />
       </form>
     </section>
   );

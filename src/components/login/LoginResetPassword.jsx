@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const [key, setKey] = React.useState("");
   const password = useForm();
   const { loading, error, request } = useFetch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -24,20 +24,20 @@ const ResetPassword = () => {
   }, []);
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const { url, options } = PASSWORD_RESET({
       login,
       key,
       password: password.value,
     });
-    const {response} = await request(url, options);
-    if(response.ok) {
-      navigate('/login')
+    const { response } = await request(url, options);
+    if (response.ok) {
+      navigate("/login");
     }
   };
   return (
-    <div>
-      <Head title="Resete sua senha"></Head>
+    <section className="animeLeft">
+      <Head title="Resete sua senha" />
       <h1 className="title">Resete a senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
@@ -45,15 +45,15 @@ const ResetPassword = () => {
           type="password"
           name="password"
           {...password}
-        ></Input>
+        />
         {loading ? (
           <Button disabled>Enviando...</Button>
         ) : (
           <Button>Resetar</Button>
         )}
       </form>
-      <Error error={error}></Error>
-    </div>
+      <Error error={error} />
+    </section>
   );
 };
 

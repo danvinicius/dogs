@@ -20,19 +20,14 @@ const LostPassword = () => {
     }
   };
   return (
-    <section>
-      <Head title="Perdeu a senha?"></Head>
+    <section className="animeLeft">
+      <Head title="Perdeu a senha?" />
       <h1 className="title">Perdeu a senha?</h1>
       {data ? (
         <p style={{ color: "#4c1" }}>{data}</p>
       ) : (
         <form onSubmit={handleSubmit}>
-          <Input
-            label="E-mail / Usuário"
-            type="text"
-            name="login"
-            {...login}
-          ></Input>
+          <Input label="E-mail / Usuário" type="text" name="login" {...login} />
           {loading ? (
             <Button disabled>Enviando...</Button>
           ) : (
@@ -41,7 +36,7 @@ const LostPassword = () => {
         </form>
       )}
 
-      <Error error={error}></Error>
+      <Error error={error} />
     </section>
   );
 };

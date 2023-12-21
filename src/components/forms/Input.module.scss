@@ -1,34 +1,35 @@
 .wrapper {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 
-    .input {
-        border: 1px solid #eee;
-        display: block;
-        width: 100%;
-        font-size: 1em;
-        padding: .8em;
-        border-radius: .4em;
-        background: #eee;
-        transition: .2s;
+  .input {
+    border: 1px solid #eee;
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    padding: 0.8em;
+    border-radius: 0.4em;
+    background: #eee;
+    transition: 0.2s;
 
-        &:hover, &:focus {
-            outline: none;
-            border-color: #fb1;
-            background: #fff;
-            box-shadow: 0 0 0 3px #fea;
-        }
+    &:hover,
+    &:focus {
+      outline: none;
+      border-color: #fb1;
+      background: #fff;
+      box-shadow: 0 0 0 3px #fea;
     }
+  }
 
-    .label {
-        display: block;
-        font-size: 1em;
-        line-height: 1;
-        padding-bottom: .5em;
-    }
+  .label {
+    display: block;
+    font-size: 1em;
+    line-height: 1;
+    padding-bottom: 0.5em;
+  }
 
-    .error {
-        color: #f31;
-        font-size: .875em;
-        margin-top: .25em;
-    }
+  .error {
+    color: #f31;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+  }
 }

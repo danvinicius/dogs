@@ -5,6 +5,7 @@ import Loading from "../helper/Loading";
 import Error from "../helper/Error";
 import FeedPhotosItem from "./FeedPhotosItem";
 import styles from "./FeedPhotos.module.scss";
+import PropTypes from "prop-types";
 
 const FeedPhotos = ({ setInfinite, page, user, setModalPhoto }) => {
   const { data, error, loading, request } = useFetch();
@@ -36,6 +37,16 @@ const FeedPhotos = ({ setInfinite, page, user, setModalPhoto }) => {
       </ul>
     );
   return null;
+};
+
+FeedPhotos.propTypes = {
+  setInfinite: PropTypes.func.isRequired,
+  setModalPhoto: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
 };
 
 export default FeedPhotos;

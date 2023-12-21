@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Image.module.scss";
+import PropTypes from "prop-types";
 
 const Image = ({ alt, ...props }) => {
   const [skeleton, setSkeleton] = React.useState(true);
@@ -20,6 +21,10 @@ const Image = ({ alt, ...props }) => {
       />
     </div>
   );
+};
+
+Image.propTypes = {
+  alt: PropTypes.string.isRequired,
 };
 
 export default Image;

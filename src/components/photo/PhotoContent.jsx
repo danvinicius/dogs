@@ -5,14 +5,15 @@ import PhotoComments from "./PhotoComments";
 import { UserContext } from "../../context/UserContext";
 import PhotoDelete from "./PhotoDelete";
 import Image from "../helper/Image";
+import PropTypes from "prop-types";
 
 const PhotoContent = ({ data, single }) => {
   const { photo, comments } = data;
   const user = React.useContext(UserContext);
   return (
-    <div className={`${styles.photo} ${single ? styles.single : ''}`}>
+    <div className={`${styles.photo} ${single ? styles.single : ""}`}>
       <div className={styles.img}>
-        <Image alt={photo.title} src={photo.src}/>
+        <Image alt={photo.title} src={photo.src} />
       </div>
       <div className={styles.details}>
         <div>
@@ -35,9 +36,31 @@ const PhotoContent = ({ data, single }) => {
           </ul>
         </div>
       </div>
-      <PhotoComments id={photo.id} comments={comments} single={single}/>
+      <PhotoComments id={photo.id} comments={comments} single={single} />
     </div>
   );
+};
+
+PhotoContent.propTypes = {
+  data: PropTypes.shape({
+    photo: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      acessos: PropTypes.number.isRequired,
+      idade: PropTypes.string.isRequired,
+      peso: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+    }),
+    comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        comment_ID: PropTypes.string,
+        comment_author: PropTypes.string,
+        comment_content: PropTypes.string,
+      })
+    ),
+  }),
+  single: PropTypes.bool,
 };
 
 export default PhotoContent;

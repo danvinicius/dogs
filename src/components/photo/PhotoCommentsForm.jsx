@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import { COMMENT_POST } from "../../api";
 import Error from "../helper/Error";
 import styles from "./PhotoCommentsForm.module.scss";
+import PropTypes from "prop-types";
 
 const PhotoCommentsForm = ({ id, setComments, single }) => {
   const { request, error } = useFetch();
@@ -20,7 +21,10 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className={`${styles.form} ${single ? styles.single : ''}`}>
+    <form
+      onSubmit={handleSubmit}
+      className={`${styles.form} ${single ? styles.single : ""}`}
+    >
       <label htmlFor="comment">
         <textarea
           className={styles.textarea}
@@ -37,6 +41,12 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
       <Error error={error} />
     </form>
   );
+};
+
+PhotoCommentsForm.propTypes = {
+  id: PropTypes.number.isRequired,
+  setComments: PropTypes.func.isRequired,
+  single: PropTypes.bool,
 };
 
 export default PhotoCommentsForm;

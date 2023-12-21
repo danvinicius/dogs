@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './Loading.module.scss';
+import React from "react";
+import styles from "./Loading.module.scss";
 
 const Loading = () => {
   const [step, setStep] = React.useState(0);
@@ -7,22 +7,21 @@ const Loading = () => {
   React.useEffect(() => {
     const updateStep = () => {
       setStep((step) => {
-        if (step < 3)
-          return step + 1;
+        if (step < 3) return step + 1;
         return 0;
-      })
-    }
+      });
+    };
     const interval = setInterval(updateStep, 300);
     return () => {
       clearInterval(interval);
-    }
+    };
   }, []);
 
   const displayStep = (i) => {
     return {
-      display: step === i ? 'block' : 'none'
-    }
-  }
+      display: step === i ? "block" : "none",
+    };
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -105,7 +104,7 @@ const Loading = () => {
         </svg>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

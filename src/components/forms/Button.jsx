@@ -1,4 +1,5 @@
 import style from "./Button.module.scss";
+import PropTypes from "prop-types";
 
 const Button = ({ children, ...props }) => {
   return (
@@ -6,6 +7,10 @@ const Button = ({ children, ...props }) => {
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.string.isRequired,
 };
 
 export default Button;

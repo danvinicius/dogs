@@ -18,7 +18,7 @@ const UserPhotoPost = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (data) navigate('/user')
+    if (data) navigate("/user");
   }, [data, navigate]);
 
   const handleSubmit = (event) => {
@@ -43,11 +43,11 @@ const UserPhotoPost = () => {
   };
   return (
     <section className={`${styles.photoPost} animeLeft`}>
-      <Head title='Poste uma foto'></Head>
+      <Head title="Poste uma foto" />
       <form onSubmit={handleSubmit}>
-        <Input type="text" label="Nome" name="nome" {...nome}/>
-        <Input type="number" label="Peso" name="peso" {...peso}/>
-        <Input type="number" label="Idade" name="idade" {...idade}/>
+        <Input type="text" label="Nome" name="nome" {...nome} />
+        <Input type="number" label="Peso" name="peso" {...peso} />
+        <Input type="number" label="Idade" name="idade" {...idade} />
         <input
           className={styles.file}
           type="file"
@@ -60,7 +60,7 @@ const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        <Error error={error}/>
+        <Error error={error} />
       </form>
       {img.preview && (
         <div

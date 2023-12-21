@@ -1,12 +1,12 @@
-import React from "react";
 import styles from "./PhotoDelete.module.scss";
 import { PHOTO_DELETE } from "../../api";
 import useFetch from "../../hooks/useFetch";
+import PropTypes from "prop-types";
 
 const PhotoDelete = ({ id }) => {
   const { loading, request } = useFetch();
 
-  const handleClick = async (event) => {
+  const handleClick = async () => {
     const confirm = window.confirm("Tem certeza que deseja deletar?");
     if (confirm) {
       const token = localStorage.getItem("token");
@@ -29,6 +29,10 @@ const PhotoDelete = ({ id }) => {
       )}
     </>
   );
+};
+
+PhotoDelete.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default PhotoDelete;

@@ -8,8 +8,8 @@ const types = {
   },
   number: {
     regex: /^\d+$/,
-    message: 'Utilize números apenas.'
-  }
+    message: "Utilize números apenas.",
+  },
 };
 
 const useForm = (type) => {
@@ -31,7 +31,7 @@ const useForm = (type) => {
   };
 
   const onChange = ({ target }) => {
-    if (error) validate(target.value)
+    if (error) validate(target.value);
     setValue(target.value);
   };
   return {

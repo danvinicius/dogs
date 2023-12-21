@@ -1,4 +1,5 @@
 import style from "./Input.module.scss";
+import PropTypes from "prop-types";
 
 const Input = ({ label, type, name, value, onChange, error, onBlur }) => {
   return (
@@ -18,6 +19,16 @@ const Input = ({ label, type, name, value, onChange, error, onBlur }) => {
       {error && <small className={style.error}>{error}</small>}
     </div>
   );
+};
+
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  error: PropTypes.string,
+  onBlur: PropTypes.func,
 };
 
 export default Input;
